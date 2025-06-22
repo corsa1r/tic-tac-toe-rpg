@@ -13,9 +13,7 @@ class UserController {
         res.status(200).json({
             success: true,
             message: 'Lobby created successfully',
-            data: {
-                id: 'lobby123',
-            },
+            data: lobby,
         })
     }
 }
