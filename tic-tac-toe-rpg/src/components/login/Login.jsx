@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Menu from '../menu/Menu.jsx'
+import sendRequest from '../../helpers/http.jsx'
 
 function Login() {
     const [name, setName] = useState('')
@@ -7,9 +8,7 @@ function Login() {
     const [loading, setLoading] = useState('')
 
     async function SendLogin() {
-        // TODO: please do not forcefully slow it down
-        // and add proper response handling
-        const response = await fetch('/user/login', { method: 'POST', body: JSON.stringify({ name: name }), headers: { 'Content-Type': 'application/json' } })
+        const response = await sendRequest('user/login', { name })
         setTimeout(() => {
             setLoading('')
             if (response.statusText) {
@@ -28,7 +27,7 @@ function Login() {
         <div>
             <Menu></Menu>
             <div>Select Name</div>
-            <input onChange={handleNameChange} type="text" name="" id="" />
+            <input onChange={handleNameChange} type="text" />
             <button onClick={SendLogin}>OK</button>
 
             <div>{loading}</div>
