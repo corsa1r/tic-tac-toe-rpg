@@ -10,6 +10,7 @@ const LobbyController = require('./controllers/LobbyController')
 const lobbyController = new LobbyController()
 
 app.use(bodyParser.json())
+app.use(cors())
 app.post('/user/login', userController.createLobby.bind(userController))
 app.get('/lobbies', lobbyController.getLobbies.bind(lobbyController))
 app.post('/lobbies/join/:id', lobbyController.joinLobbyById.bind(lobbyController))
