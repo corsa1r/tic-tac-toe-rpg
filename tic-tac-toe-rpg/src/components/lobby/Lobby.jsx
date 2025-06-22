@@ -1,6 +1,11 @@
+import Menu from '../menu/Menu'
+
 function Lobby() {
   return (
-    <div>Game on!</div>
+    <div>
+      <Menu></Menu>
+      <div>Game on!</div>
+    </div>
   )
 }
 
