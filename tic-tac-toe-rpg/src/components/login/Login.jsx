@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Menu from '../menu/Menu.jsx'
-import sendRequest from '../../helpers/http.jsx'
+import { httpPost } from '../../helpers/http.jsx'
 
 function Login() {
     const [name, setName] = useState('')
@@ -8,7 +8,7 @@ function Login() {
     const [loading, setLoading] = useState('')
 
     async function SendLogin() {
-        const response = await sendRequest('user/login', { name })
+        const response = await httpPost('user/login', { name })
         setTimeout(() => {
             setLoading('')
             if (response.statusText) {

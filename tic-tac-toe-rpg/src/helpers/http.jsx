@@ -1,9 +1,18 @@
-function sendRequest(path, data) {
-    return fetch('http://localhost:3000/' + path, {
+const host = 'http://localhost:3000/' // add to env config
+
+function httpPost(path, data) {
+    return fetch(host + path, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
     });
 }
 
-export default sendRequest;
+function httpGet(path) {
+    return fetch(host + path, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+
+export { httpGet, httpPost };
