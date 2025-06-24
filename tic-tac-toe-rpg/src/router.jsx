@@ -16,4 +16,4 @@ export const router = createBrowserRouter([
         path: '/lobby/:id',
         Component: Lobby,
     }
-]);
+])

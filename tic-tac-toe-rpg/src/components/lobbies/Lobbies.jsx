@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { httpGet } from '../../helpers/http.jsx'
-import { to } from '../../helpers/await-to.jsx'
 import Menu from '../menu/Menu.jsx'
 
 function Lobbies() {
@@ -11,7 +10,7 @@ function Lobbies() {
     httpGet('lobbies')
       .then((data) => setLobbies(data))
       .catch((err) => setError(`Error fetching lobbies: ${err.message}`))
-  }, []);
+  }, [])
 
   return (
     <div>
