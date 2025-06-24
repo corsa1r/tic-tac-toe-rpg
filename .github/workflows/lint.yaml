@@ -15,3 +15,12 @@ jobs:
               with:
                 ref: main
                 token: ${{ secrets.MAIN_SECRET }}
+            - name: Setup NodeJS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 22.16.0
+            - name: Install deps
+              run: npm i
+              working-directory: ./tic-tac-toe-rpg
+            - name: Lint
+              run: npm run lint
