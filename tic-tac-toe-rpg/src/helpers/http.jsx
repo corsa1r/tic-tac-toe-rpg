@@ -26,8 +26,8 @@ async function httpGet(path) {
 }
 
 function handleJsonResponse(response) {
-    if (response.success === false) return Promise.reject(response.message)
-    if (!response.data) return Promise.reject('No data returned from server')
+    if (!response.success) return Promise.reject(response.message ?? 'unknown_error')
+    if (!response.data) return Promise.reject('no_response_data')
     return Promise.resolve(response.data)
 }
 
