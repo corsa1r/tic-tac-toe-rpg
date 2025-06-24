@@ -24,3 +24,4 @@ jobs:
               working-directory: ./tic-tac-toe-rpg
             - name: Lint
               run: npm run lint
+              working-directory: ./tic-tac-toe-rpg
